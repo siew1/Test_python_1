@@ -1,7 +1,5 @@
 from funciones import *
 
-
-
 while True:
     limpiar_pantalla()
     menu_principal()

@@ -21,6 +21,7 @@ def asignar_sueldos_aleatorios():
     limpiar_pantalla()
     print("Asignar sueldos aleatorios a trabajadores")
     print("="*30)
+    
     for i in range(len(trabajadores)):
         sueldo_aleatorio = random.randint(300000,2500000)
         sueldos_trabajadores.append(sueldo_aleatorio)
@@ -29,21 +30,40 @@ def asignar_sueldos_aleatorios():
     print("="*30)
     for i in range(len(trabajadores)):
         print(f"{trabajadores[i]:<20}\t${sueldos_trabajadores[i]}")
+    return sueldos_trabajadores
     
 def clasificar_sueldos():
-    print(sueldos_trabajadores)
     limpiar_pantalla()
     print("\nClasificacion de sueldos.")
     print("="*30)
+    rango_sueldo1=[]
+    rango_sueldo2=[]
+    rango_sueldo3=[]
     for i in range(len(trabajadores)):
         sueldo_aleatorio = sueldos_trabajadores[i]
         if sueldo_aleatorio < 800000:    
-            clasificacion = "Sueldos menores a $800.000"
+            rango_sueldo1.append((trabajadores[i], sueldo_aleatorio))
         elif sueldo_aleatorio <= 2000000:
-            clasificacion = "Sueldos entre $800.000 y $2.000.000"
+            rango_sueldo2.append((trabajadores[i], sueldo_aleatorio))
         else:
-            clasificacion = "Sueldos superiores a $2.000.000"
-        print(f"{trabajadores[i]:<20}: ${sueldo_aleatorio} - {clasificacion}")
+            rango_sueldo3.append((trabajadores[i], sueldo_aleatorio))
+
+    print(f"Sueldos menores a $800.000 TOTAL {len(rango_sueldo1)}")
+    print("Trabajador\t\tSueldo")
+    for trabajador, sueldo in rango_sueldo1:
+        print(f"{trabajador:<25}: ${sueldo}")
+                    
+    print(f"\nSueldos entre $800.000 y $2.000.000 TOTAL {len(rango_sueldo2)}")
+    print("Trabajador                Sueldo")
+    for trabajador, sueldo in rango_sueldo2:
+        print(f"{trabajador:<25}: ${sueldo}")
+        
+    print(f"\nSueldos mayores a $2.000.000 TOTAL {len(rango_sueldo3)}")
+    print("Trabajador                Sueldo")
+    for trabajador, sueldo in rango_sueldo3:
+        print(f"{trabajador:<25}: ${sueldo}")
+        
+        # print(f"{trabajadores[i]:<20}: ${sueldo_aleatorio} - {clasificacion}")
         
 def precio_mas_bajo(sueldos_trabajadores):
     menor=min(sueldos_trabajadores)
@@ -68,19 +88,19 @@ def ver_estadisticas():
     print(f"Promedio de sueldos: ${promedio(sueldos_trabajadores)}")
     print(f"Medida geometrica de sueldos: ${media_geometrica(sueldos_trabajadores)}")
     
-def generar_archivo(sueldos_trabajadores):
-    csv_content = "Nombre empleado,Sueldo Base,Descuento Salud,Descuento AFP,Sueldo Líquido\n"
+def generar_archivo():
+    csv_content = "Nombre empleado,Sueldo Base,Descuento Salud,Descuento AFP,Sueldo Liquido\n"
     for i in range(len(trabajadores)):
         sueldo_aleatorio = sueldos_trabajadores[i]
         descuento_salud = sueldo_aleatorio * 0.07
         descuento_AFP = sueldo_aleatorio * 0.12
-        sueldo_liquido = sueldo_aleatorio - descuento_salud - descuento_AFP
+        sueldo_liquido = sueldo_aleatorio - descuento_salud - descuento_AFP 
         csv_content += f"{trabajadores[i]},{sueldo_aleatorio},{descuento_salud},{descuento_AFP},{sueldo_liquido}\n"
     return csv_content
 
 def guardar_reporte():
     limpiar_pantalla()
-    csv_content = generar_archivo(sueldos_trabajadores)
+    csv_content = generar_archivo()
     with open('reporte_sueldos.csv', 'w') as file:
         file.write(csv_content)
     print("\nReporte de sueldos generado correctamente en 'reporte_sueldos.csv'")
