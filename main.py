@@ -37,5 +37,6 @@ while True:
             print("Finalizando programa…")
             print("Desarrollado por Bastian Corona")
             print("RUT 18.xxx.xxx-x")
+            break
     except:
         print("Opcion ingresada no existe.")

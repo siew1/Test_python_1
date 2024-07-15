@@ -71,19 +71,22 @@ def clasificar_sueldos():
 
 
 def precio_mas_bajo(sueldos_trabajadores):
-    menor=min(sueldos_trabajadores)
+    menor = int(min(sueldos_trabajadores))
     return menor
+
 def precio_mas_alto(sueldos_trabajadores):
-    mayor=max(sueldos_trabajadores)
+    mayor = int(max(sueldos_trabajadores))
     return mayor
+
 def promedio(sueldos_trabajadores):
-    prom_sueldos=sum(sueldos_trabajadores)/len(sueldos_trabajadores)
+    prom_sueldos = int(sum(sueldos_trabajadores) / len(sueldos_trabajadores))
     return prom_sueldos
+
 def media_geometrica(sueldos_trabajadores):
-    trabajador_sueldo=1
+    trabajador_sueldo = 1
     for sueldo_aleatorio in sueldos_trabajadores:
         trabajador_sueldo *= sueldo_aleatorio
-    return trabajador_sueldo **(1/len(sueldos_trabajadores))
+    return int(trabajador_sueldo ** (1 / len(sueldos_trabajadores)))
 
 def ver_estadisticas():
     limpiar_pantalla()
