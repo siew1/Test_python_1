@@ -50,22 +50,22 @@ def clasificar_sueldos():
 
     print(f"Sueldos menores a $800.000 TOTAL {len(rango_sueldo1)}")
     print("Trabajador\t\tSueldo")
-    for trabajador, sueldo in rango_sueldo1:
-        print(f"{trabajador:<25}: ${sueldo}")
+    for trabajador, sueldo_aleatorio in rango_sueldo1:
+        print(f"{trabajador:<25}: ${sueldo_aleatorio}")
     if not rango_sueldo1:
         print("No hay sueldos menores a $800.000")
                     
     print(f"\nSueldos entre $800.000 y $2.000.000 TOTAL {len(rango_sueldo2)}")
     print("Trabajador                Sueldo")
-    for trabajador, sueldo in rango_sueldo2:
-        print(f"{trabajador:<25}: ${sueldo}")
+    for trabajador, sueldo_aleatorio in rango_sueldo2:
+        print(f"{trabajador:<25}: ${sueldo_aleatorio}")
     if not rango_sueldo2:
         print("No hay sueldos entre $800.000 a $2.000.000")
         
     print(f"\nSueldos mayores a $2.000.000 TOTAL {len(rango_sueldo3)}")
     print("Trabajador                Sueldo")
-    for trabajador, sueldo in rango_sueldo3:
-        print(f"{trabajador:<25}: ${sueldo}")
+    for trabajador, sueldo_aleatorio in rango_sueldo3:
+        print(f"{trabajador:<25}: ${sueldo_aleatorio}")
     if not rango_sueldo3:
         print("No hay sueldos superior a $2.000.000")
 
